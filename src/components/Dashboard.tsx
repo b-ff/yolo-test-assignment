@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { AddCurrencyForm } from "./AddCurrencyForm";
 import { CurrenciesList } from "./CurrenciesList";
 import { config } from "../config";
+import { uniq } from "../utils";
 
 export const Dashboard: FC = (): ReactElement => {
   const [currencyCodes, setCurrencyCodes] = useState<string[]>(
@@ -12,9 +13,9 @@ export const Dashboard: FC = (): ReactElement => {
 
   const handleAddCurrencyCode = useCallback(
     (currencyCode: string): void => {
-      setCurrencyCodes((codes: string[]): string[] => [
-        ...new Set([...codes, currencyCode.toLocaleUpperCase()]),
-      ]);
+      setCurrencyCodes((codes: string[]): string[] =>
+        uniq([...codes, currencyCode.toLocaleUpperCase()])
+      );
     },
     [setCurrencyCodes]
   );

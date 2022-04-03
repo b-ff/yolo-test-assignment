@@ -1,7 +1,17 @@
 import React, { FC, MouseEventHandler, ReactElement } from "react";
 import styled from "styled-components";
+import { config } from "../config";
 import { ReactComponent as Icon } from "../icons/icon.svg";
 import { ReactComponent as Remove } from "../icons/remove.svg";
+
+type CurrencySignsMap = {
+  [key: string]: string;
+};
+
+const CURRENCY_SIGNS: CurrencySignsMap = {
+  EUR: "€",
+  USD: "$",
+};
 
 type CurrenciesListItemProps = {
   currencyCode: string;
@@ -19,7 +29,9 @@ export const CurrenciesListItem: FC<CurrenciesListItemProps> = ({
       <StyledIcon />
       <StyledCurrencyInfo>
         <StyledCurrencyCode>{currencyCode}</StyledCurrencyCode>
-        <StyledCurrencyPrice>{price.toFixed(2)} €</StyledCurrencyPrice>
+        <StyledCurrencyPrice>
+          {price.toFixed(2)} {CURRENCY_SIGNS[config.baseCurrencyCode]}
+        </StyledCurrencyPrice>
       </StyledCurrencyInfo>
       <StyledRemoveButton onClick={onRemove}>
         <StyledRemove />
