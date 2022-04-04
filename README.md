@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ea074f07-b8be-42fc-b390-23a6c422d658/deploy-status)](https://app.netlify.com/sites/cosmic-torrone-476bfb/deploys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
